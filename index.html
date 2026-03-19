@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,23 +8,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #ffffff;
-    --bg2: #f5f5f3;
-    --bg3: #eeede9;
-    --text: #1a1a18;
-    --text2: #5c5c58;
-    --text3: #9c9a92;
-    --border: rgba(0,0,0,0.10);
-    --border2: rgba(0,0,0,0.18);
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-pill: 20px;
-    --green: #1D9E75;
-    --green-bg: #f0faf6;
-    --green-text: #085041;
+    --bg: #ffffff; --bg2: #f5f5f3; --bg3: #eeede9;
+    --text: #1a1a18; --text2: #5c5c58; --text3: #9c9a92;
+    --border: rgba(0,0,0,0.10); --border2: rgba(0,0,0,0.18);
+    --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-pill: 20px;
+    --green: #1D9E75; --green-bg: #f0faf6; --green-text: #085041;
   }
-
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #1c1c1a; --bg2: #262624; --bg3: #303030;
@@ -49,22 +37,16 @@
     .chip-pace.selected     { background: #2e1a14 !important; color: #F0997B !important; border-color: #D85A30 !important; }
     .audience-banner        { background: #0a2e22 !important; border-color: #1D9E75 !important; }
     .preset-card:hover      { border-color: rgba(255,255,255,0.28) !important; }
-    .section-block          { background: var(--bg2) !important; }
-    .output-box             { background: var(--bg) !important; }
   }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: var(--bg3);
-    color: var(--text);
-    min-height: 100vh;
+    background: var(--bg3); color: var(--text); min-height: 100vh;
   }
 
   .page-header {
-    background: var(--bg);
-    border-bottom: 0.5px solid var(--border);
-    padding: 18px 32px 14px;
-    position: sticky; top: 0; z-index: 10;
+    background: var(--bg); border-bottom: 0.5px solid var(--border);
+    padding: 18px 32px 14px; position: sticky; top: 0; z-index: 10;
     display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
   }
   .page-header h1 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
@@ -72,45 +54,55 @@
 
   .main { max-width: 880px; margin: 0 auto; padding: 20px 24px 60px; display: flex; flex-direction: column; gap: 16px; }
 
-  /* ── Section block ── */
   .section-block {
-    background: var(--bg);
-    border-radius: var(--radius-lg);
-    border: 0.5px solid var(--border);
-    overflow: hidden;
+    background: var(--bg); border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border); overflow: hidden;
   }
-
-  .block-header {
-    padding: 16px 20px 0;
-  }
-  .block-step {
-    display: inline-flex; align-items: center; gap: 7px;
-    margin-bottom: 4px;
-  }
+  .block-header { padding: 16px 20px 0; }
+  .block-step   { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 4px; }
   .step-num {
     width: 22px; height: 22px; border-radius: 50%;
     background: var(--text); color: var(--bg);
     font-size: 12px; font-weight: 600;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
   .step-title { font-size: 15px; font-weight: 600; color: var(--text); }
-  .block-desc { font-size: 12.5px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; padding-left: 29px; }
-
+  .block-desc { font-size: 12.5px; color: var(--text2); line-height: 1.65; margin-bottom: 16px; padding-left: 29px; }
   .block-body { padding: 0 20px 20px; }
 
-  /* ── Output area ── */
+  /* output */
   .output-box {
-    background: var(--bg2);
-    border: 0.5px solid var(--border2);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
+    background: var(--bg2); border: 0.5px solid var(--border2);
+    border-radius: var(--radius-md); padding: 14px 16px;
     min-height: 72px; font-size: 14px; line-height: 1.85;
-    color: var(--text); word-break: break-all;
-    margin-bottom: 10px;
+    color: var(--text); word-break: break-all; margin-bottom: 10px;
   }
   .pb-placeholder { color: var(--text3); font-size: 13px; }
-  .pb-hint { font-size: 11.5px; color: var(--text3); margin-bottom: 12px; min-height: 16px; }
+  .pb-hint { font-size: 11.5px; color: var(--text3); margin-bottom: 10px; min-height: 16px; }
+
+  /* random result strip */
+  .random-result {
+    display: none; flex-wrap: wrap; align-items: center;
+    gap: 6px; padding: 10px 14px; margin-bottom: 12px;
+    background: var(--bg2); border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border);
+  }
+  .random-result.visible { display: flex; }
+  .random-result-label { font-size: 12px; color: var(--text3); white-space: nowrap; }
+  .random-result-tags  { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
+  .random-tag {
+    font-size: 12px; padding: 3px 9px; border-radius: 12px;
+    background: var(--bg); border: 0.5px solid var(--border2);
+    color: var(--text2); white-space: nowrap;
+  }
+  .random-edit-link {
+    font-size: 12px; color: var(--text2); white-space: nowrap;
+    padding: 3px 10px; border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border2); cursor: pointer;
+    background: var(--bg); transition: background 0.12s;
+    text-decoration: none;
+  }
+  .random-edit-link:hover { background: var(--bg3); color: var(--text); }
 
   .pb-actions { display: flex; gap: 8px; flex-wrap: wrap; }
   .pb-btn {
@@ -122,12 +114,8 @@
   .pb-btn.primary { background: var(--text); color: var(--bg); border-color: transparent; font-weight: 500; }
   .pb-btn.primary:hover { opacity: 0.82; }
 
-  /* ── Presets ── */
-  .presets-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
-    gap: 10px;
-  }
+  /* presets */
+  .presets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(188px, 1fr)); gap: 10px; }
   .preset-card {
     border: 0.5px solid var(--border); border-radius: var(--radius-sm);
     padding: 11px 13px; cursor: pointer; background: var(--bg2);
@@ -137,15 +125,11 @@
   .preset-name { font-size: 13px; font-weight: 500; margin-bottom: 6px; }
   .preset-tags { display: flex; flex-wrap: wrap; gap: 4px; }
 
-  /* ── Chips ── */
+  /* chips */
   .pb-section { margin-bottom: 18px; }
   .pb-section:last-child { margin-bottom: 0; }
-  .pb-label {
-    font-size: 12px; font-weight: 500; color: var(--text2);
-    margin-bottom: 9px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-  }
-  .pb-row { display: flex; flex-wrap: wrap; gap: 7px; }
-
+  .pb-label { font-size: 12px; font-weight: 500; color: var(--text2); margin-bottom: 9px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .pb-row   { display: flex; flex-wrap: wrap; gap: 7px; }
   .pb-chip {
     padding: 6px 13px; border-radius: var(--radius-pill); font-size: 13px; cursor: pointer;
     border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text);
@@ -153,7 +137,6 @@
     user-select: none; line-height: 1.45; white-space: nowrap;
   }
   .pb-chip:hover { background: var(--bg3); }
-
   .chip-audience.selected { background: #E1F5EE; color: #085041; border-color: #5DCAA5; }
   .chip-motion.selected   { background: #EEEDFE; color: #3C3489; border-color: #AFA9EC; }
   .chip-scene.selected    { background: #FAEEDA; color: #633806; border-color: #EF9F27; }
@@ -162,10 +145,7 @@
   .chip-lens.selected     { background: #F1EFE8; color: #444441; border-color: #B4B2A9; }
   .chip-pace.selected     { background: #FAECE7; color: #712B13; border-color: #F0997B; }
 
-  .pb-tag {
-    display: inline-block; font-size: 11px; padding: 2px 8px;
-    border-radius: 10px; font-weight: 500; white-space: nowrap;
-  }
+  .pb-tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 500; white-space: nowrap; }
   .tag-audience { background: #E1F5EE; color: #085041; }
   .tag-motion   { background: #EEEDFE; color: #3C3489; }
   .tag-scene    { background: #FAEEDA; color: #633806; }
@@ -183,24 +163,26 @@
   .audience-banner.visible { display: block; }
   .audience-banner strong { color: var(--text); font-weight: 600; }
 
-  /* sub-divider inside custom block */
+  /* Step3底部应用按钮 */
+  .apply-bar {
+    margin-top: 20px; padding-top: 16px;
+    border-top: 0.5px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .apply-desc { font-size: 12px; color: var(--text3); flex: 1; }
+
   .sub-divider {
     font-size: 11px; font-weight: 600; color: var(--text3);
     letter-spacing: 0.07em; text-transform: uppercase;
-    display: flex; align-items: center; gap: 8px;
-    margin: 20px 0 14px;
+    display: flex; align-items: center; gap: 8px; margin: 20px 0 14px;
   }
-  .sub-divider::before, .sub-divider::after {
-    content: ''; flex: 1; height: 0.5px; background: var(--border);
-  }
+  .sub-divider::before, .sub-divider::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
 
-  /* toast */
   .toast {
     position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(12px);
     background: var(--text); color: var(--bg); font-size: 13px;
     padding: 9px 20px; border-radius: var(--radius-pill);
-    opacity: 0; transition: opacity 0.2s, transform 0.2s; pointer-events: none; white-space: nowrap;
-    z-index: 100;
+    opacity: 0; transition: opacity 0.2s, transform 0.2s; pointer-events: none; white-space: nowrap; z-index: 100;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
@@ -209,7 +191,7 @@
     .page-header { padding: 14px 16px; }
     .presets-grid { grid-template-columns: 1fr 1fr; }
     .block-header { padding: 14px 14px 0; }
-    .block-body { padding: 0 14px 16px; }
+    .block-body   { padding: 0 14px 16px; }
   }
 </style>
 </head>
@@ -222,9 +204,7 @@
 
 <div class="main">
 
-  <!-- ══════════════════════════════════
-       区域 1：生成 & 复制
-  ══════════════════════════════════ -->
+  <!-- ══ 区域 1：生成 & 复制 ══ -->
   <div class="section-block">
     <div class="block-header">
       <div class="block-step">
@@ -232,14 +212,15 @@
         <div class="step-title">复制 Prompt，去 Seedance 粘贴使用</div>
       </div>
       <div class="block-desc">
-        这里是最终结果。完成下方选择后，Prompt 自动出现在这里，点「复制 Prompt」按钮，直接粘贴到 Seedance 图生视频的文字输入框，上传商品图后即可生成视频。
+        这里是最终结果。完成下方选择后 Prompt 自动出现在这里，点「复制 Prompt」后粘贴到 Seedance 图生视频的文字输入框，上传商品图即可生成视频。
       </div>
     </div>
     <div class="block-body">
       <div class="output-box" id="output">
-        <span class="pb-placeholder">Prompt 将在这里自动生成——请先从下方「Step 2 推荐组合」选一个，或在「Step 3 自定义」中手动选择</span>
+        <span class="pb-placeholder">Prompt 将在这里自动生成——请先从「Step 2 推荐组合」选一个，或在「Step 3 自定义」中手动选择</span>
       </div>
       <div class="pb-hint" id="combo-hint"></div>
+      <div class="random-result" id="random-result"></div>
       <div class="pb-actions">
         <button class="pb-btn primary" onclick="copyPrompt()">复制 Prompt</button>
         <button class="pb-btn" onclick="clearAll()">清空重选</button>
@@ -248,9 +229,7 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════
-       区域 2：推荐组合
-  ══════════════════════════════════ -->
+  <!-- ══ 区域 2：推荐组合 ══ -->
   <div class="section-block">
     <div class="block-header">
       <div class="block-step">
@@ -258,7 +237,7 @@
         <div class="step-title">从推荐组合中选一个，一键填入</div>
       </div>
       <div class="block-desc">
-        <strong style="color:var(--text);font-weight:600">新手从这里开始。</strong>已按8类人群配好8套完整组合，点任意卡片即可一键填好所有维度，上方 Prompt 立即生成。想微调某个选项，再去下方「Step 3 自定义」单独修改即可。
+        <strong style="color:var(--text);font-weight:600">新手从这里开始。</strong>已按8类人群配好8套完整组合，点任意卡片即可一键填好所有维度，上方 Prompt 立即生成。想微调某个选项，再去下方「Step 3」单独修改即可。
       </div>
     </div>
     <div class="block-body">
@@ -266,17 +245,15 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════
-       区域 3：自定义选项
-  ══════════════════════════════════ -->
-  <div class="section-block">
+  <!-- ══ 区域 3：自定义选项 ══ -->
+  <div class="section-block" id="custom-block">
     <div class="block-header">
       <div class="block-step">
         <div class="step-num">3</div>
         <div class="step-title">自定义选项——逐项调整，打造专属组合</div>
       </div>
       <div class="block-desc">
-        <strong style="color:var(--text);font-weight:600">老手或想精细控制时使用。</strong>每个维度点选一个标签，选中会高亮，再点一次可取消。建议至少选满「人群 + 动作 + 场景 + 情绪」4项，上方 Prompt 实时同步更新。<br>
+        <strong style="color:var(--text);font-weight:600">老手或想精细控制时使用。</strong>每个维度点选一个标签，选中会高亮，再点一次可取消。选项变动后 Step 1 的 Prompt 实时同步，点底部「应用并滚回顶部」可快速复制。<br>
         <span style="color:var(--text3);font-size:12px;margin-top:4px;display:block">选完人群后会显示对应的千川投放建议，方便同步配置广告定向。</span>
       </div>
     </div>
@@ -285,10 +262,7 @@
       <div class="sub-divider">人群定向（素材即定向）</div>
 
       <div class="pb-section">
-        <div class="pb-label">
-          主打人群
-          <span class="pb-tag tag-audience">必选 · 影响千川投放定向</span>
-        </div>
+        <div class="pb-label">主打人群 <span class="pb-tag tag-audience">必选 · 影响千川投放定向</span></div>
         <div class="pb-row" id="row-audience"></div>
         <div class="audience-banner" id="audience-hint"></div>
       </div>
@@ -299,30 +273,30 @@
         <div class="pb-label">动作 / 运镜 <span class="pb-tag tag-motion">必选</span></div>
         <div class="pb-row" id="row-motion"></div>
       </div>
-
       <div class="pb-section">
         <div class="pb-label">场景 / 背景 <span class="pb-tag tag-scene">必选</span></div>
         <div class="pb-row" id="row-scene"></div>
       </div>
-
       <div class="pb-section">
         <div class="pb-label">情绪氛围 <span class="pb-tag tag-mood">必选</span></div>
         <div class="pb-row" id="row-mood"></div>
       </div>
-
       <div class="pb-section">
-        <div class="pb-label">光线 <span class="pb-tag tag-light">选1个，可不选</span></div>
+        <div class="pb-label">光线 <span class="pb-tag tag-light">可不选</span></div>
         <div class="pb-row" id="row-light"></div>
       </div>
-
       <div class="pb-section">
-        <div class="pb-label">镜头视角 <span class="pb-tag tag-lens">选1个，可不选</span></div>
+        <div class="pb-label">镜头视角 <span class="pb-tag tag-lens">可不选</span></div>
         <div class="pb-row" id="row-lens"></div>
       </div>
-
       <div class="pb-section">
-        <div class="pb-label">节奏 / 速度 <span class="pb-tag tag-pace">选1个，可不选</span></div>
+        <div class="pb-label">节奏 / 速度 <span class="pb-tag tag-pace">可不选</span></div>
         <div class="pb-row" id="row-pace"></div>
+      </div>
+
+      <div class="apply-bar">
+        <span class="apply-desc">调整完成后，点右侧按钮回到顶部复制 Prompt</span>
+        <button class="pb-btn primary" onclick="applyAndScrollTop()">应用并滚回顶部 ↑</button>
       </div>
 
     </div>
@@ -330,19 +304,19 @@
 
 </div>
 
-<div class="toast" id="toast">已复制到剪贴板</div>
+<div class="toast" id="toast"></div>
 
 <script>
 const data = {
   audience: [
-    { label: "小镇青年",   val: "亲切活力感",  hint: "<strong>人群定义：</strong>城市等级四线及以下，年龄40及以下。<br><strong>风格建议：</strong>亲切接地气，甜美活力，价格感知强。场景优先选街头、花园、户外。<br><strong>千川定向建议：</strong>四线及以下城市 · 40岁以下女性 · 潮流穿搭兴趣" },
-    { label: "小镇中老年", val: "温暖亲切感",  hint: "<strong>人群定义：</strong>城市等级四线及以下，年龄40以上。<br><strong>风格建议：</strong>温暖亲切，端庄大方，避免过度潮流化。场景优先选居家、花园、公园。<br><strong>千川定向建议：</strong>四线及以下城市 · 40岁以上女性 · 中老年生活兴趣" },
-    { label: "GenZ / Z世代", val: "甜酷青春感", hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄23及以下。<br><strong>风格建议：</strong>个性潮流，甜酷反差，情绪化表达强。场景优先选街头、夜晚霓虹、艺术空间。<br><strong>千川定向建议：</strong>一二三线城市 · 23岁以下女性 · 潮流/ACG/新品兴趣" },
-    { label: "精致妈妈",   val: "温柔高级感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄24-40，已婚有孩，L3-L5中高消费力女性。<br><strong>风格建议：</strong>精致温柔，品质感强，兼顾妈妈身份与个人风格。场景优先选居家、咖啡馆、落地窗。<br><strong>千川定向建议：</strong>一二三线城市 · 24-40岁已婚有孩女性 · 母婴/家居/精致生活兴趣 · 与新锐白领互斥" },
-    { label: "新锐白领",   val: "干练都市感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄24-40，L3-L5中高消费力（与精致妈妈互斥）。<br><strong>风格建议：</strong>干练自信，职场感强，注重场合适配。场景优先选城市街头、精品店。<br><strong>千川定向建议：</strong>一二三线城市 · 24-40岁女性 · 职场/商务/时尚穿搭兴趣 · 排除已婚有孩" },
-    { label: "资深中产",   val: "优雅知性感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄41-50，L3-L5中高消费力。<br><strong>风格建议：</strong>优雅知性，有品位，注重设计感与材质。场景优先选艺术馆、精品店、民宿庭院。<br><strong>千川定向建议：</strong>一二三线城市 · 41-50岁女性 · 轻奢/高端生活/旅行兴趣" },
-    { label: "都市蓝领",   val: "元气亲和感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄24-40，L1-L2低消费力。<br><strong>风格建议：</strong>元气活力，亲和接地气，性价比感知强。场景优先选街头、咖啡馆、花园。<br><strong>千川定向建议：</strong>一二三线城市 · 24-40岁女性 · 大众穿搭/性价比/日常生活兴趣 · L1-L2消费力" },
-    { label: "都市银发",   val: "优雅从容感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄50以上。<br><strong>风格建议：</strong>优雅从容，端庄大方，展现成熟女性魅力。场景优先选公园、居家、花园。<br><strong>千川定向建议：</strong>一二三线城市 · 50岁以上女性 · 健康生活/养生/中老年穿搭兴趣" },
+    { label: "小镇青年",     promptLabel: "小镇青年风格",   val: "小镇青年风格，亲切活力感",  hint: "<strong>人群定义：</strong>城市等级四线及以下，年龄40及以下。<br><strong>风格建议：</strong>亲切接地气，甜美活力，价格感知强。场景优先选街头、花园、户外。<br><strong>千川定向建议：</strong>四线及以下城市 · 40岁以下女性 · 潮流穿搭兴趣" },
+    { label: "小镇中老年",   promptLabel: "小镇中老年风格", val: "小镇中老年风格，温暖亲切感",  hint: "<strong>人群定义：</strong>城市等级四线及以下，年龄40以上。<br><strong>风格建议：</strong>温暖亲切，端庄大方，避免过度潮流化。场景优先选居家、花园、公园。<br><strong>千川定向建议：</strong>四线及以下城市 · 40岁以上女性 · 中老年生活兴趣" },
+    { label: "GenZ / Z世代", promptLabel: "GenZ风格",       val: "GenZ风格，甜酷青春感",       hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄23及以下。<br><strong>风格建议：</strong>个性潮流，甜酷反差，情绪化表达强。场景优先选街头、夜晚霓虹、艺术空间。<br><strong>千川定向建议：</strong>一二三线城市 · 23岁以下女性 · 潮流/ACG/新品兴趣" },
+    { label: "精致妈妈",     promptLabel: "精致妈妈风格",   val: "精致妈妈风格，温柔高级感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄24-40，已婚有孩，L3-L5中高消费力女性。<br><strong>风格建议：</strong>精致温柔，品质感强，兼顾妈妈身份与个人风格。场景优先选居家、咖啡馆、落地窗。<br><strong>千川定向建议：</strong>一二三线城市 · 24-40岁已婚有孩女性 · 母婴/家居/精致生活兴趣 · 与新锐白领互斥" },
+    { label: "新锐白领",     promptLabel: "新锐白领风格",   val: "新锐白领风格，干练都市感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄24-40，L3-L5中高消费力（与精致妈妈互斥）。<br><strong>风格建议：</strong>干练自信，职场感强，注重场合适配。场景优先选城市街头、精品店。<br><strong>千川定向建议：</strong>一二三线城市 · 24-40岁女性 · 职场/商务/时尚穿搭兴趣 · 排除已婚有孩" },
+    { label: "资深中产",     promptLabel: "资深中产风格",   val: "资深中产风格，优雅知性感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄41-50，L3-L5中高消费力。<br><strong>风格建议：</strong>优雅知性，有品位，注重设计感与材质。场景优先选艺术馆、精品店、民宿庭院。<br><strong>千川定向建议：</strong>一二三线城市 · 41-50岁女性 · 轻奢/高端生活/旅行兴趣" },
+    { label: "都市蓝领",     promptLabel: "都市蓝领风格",   val: "都市蓝领风格，元气亲和感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄24-40，L1-L2低消费力。<br><strong>风格建议：</strong>元气活力，亲和接地气，性价比感知强。场景优先选街头、咖啡馆、花园。<br><strong>千川定向建议：</strong>一二三线城市 · 24-40岁女性 · 大众穿搭/性价比/日常生活兴趣 · L1-L2消费力" },
+    { label: "都市银发",     promptLabel: "都市银发风格",   val: "都市银发风格，优雅从容感",  hint: "<strong>人群定义：</strong>城市等级一二三线、特区，年龄50以上。<br><strong>风格建议：</strong>优雅从容，端庄大方，展现成熟女性魅力。场景优先选公园、居家、花园。<br><strong>千川定向建议：</strong>一二三线城市 · 50岁以上女性 · 健康生活/养生/中老年穿搭兴趣" },
   ],
   motion: [
     { label: "缓慢转身",   val: "模特缓慢转身一圈" },
@@ -418,19 +392,19 @@ const data = {
 };
 
 const presets = [
-  { name: "新锐白领·通勤款",    audience:"干练都市感",  motion:"模特从远处自然走向镜头",    scene:"都市街头自然环境",         mood:"干练自信的都市女性气质",       light:"午后从侧面照入的温暖阳光", lens:"正面平视镜头",       pace:"正常播放速度" },
-  { name: "精致妈妈·治愈风",    audience:"温柔高级感",  motion:"模特轻轻拨弄发丝",          scene:"室内落地窗自然采光环境",   mood:"温柔治愈的轻松氛围",           light:"清晨透过薄雾的柔和晨光",   lens:"近景半身特写",       pace:"整体节奏优雅舒缓" },
-  { name: "资深中产·高端大片",  audience:"优雅知性感",  motion:"镜头缓慢环绕模特一圈",      scene:"现代艺术馆白墙空间",       mood:"优雅知性的成熟魅力",           light:"专业摄影棚均匀打光",       lens:"45度斜角拍摄",       pace:"轻微慢动作效果" },
-  { name: "GenZ·甜酷夜街",      audience:"甜酷青春感",  motion:"模特转身回眸轻微微笑",      scene:"城市夜晚霓虹街景",         mood:"甜美与酷感并存的反差魅力",     light:"冷色调蓝白光线",           lens:"低角度仰拍显身材比例", pace:"节奏轻快灵动" },
-  { name: "小镇青年·清新户外",  audience:"亲切活力感",  motion:"微风吹动衣物自然飘动",      scene:"绿植花园户外自然环境",     mood:"清新自然的户外活力感",         light:"自然漫射柔和光线",         lens:"远景全身展示",       pace:"整体节奏优雅舒缓" },
-  { name: "都市银发·优雅公园",  audience:"优雅从容感",  motion:"模特沿画面侧向缓步走过",    scene:"城市公园或广场户外环境",   mood:"端庄大方的成熟女性气质",       light:"午后从侧面照入的温暖阳光", lens:"正面平视镜头",       pace:"整体节奏优雅舒缓" },
-  { name: "都市蓝领·街头日常",  audience:"元气亲和感",  motion:"模特从远处自然走向镜头",    scene:"都市街头自然环境",         mood:"亲切自然的生活化气息",         light:"自然漫射柔和光线",         lens:"45度斜角拍摄",       pace:"正常播放速度" },
-  { name: "小镇中老年·居家暖意",audience:"温暖亲切感",  motion:"模特优雅坐下再起身",        scene:"室内落地窗自然采光环境",   mood:"端庄大方的成熟女性气质",       light:"室内暖黄灯光氛围",         lens:"正面平视镜头",       pace:"整体节奏优雅舒缓" },
+  { name: "新锐白领·通勤款",     audience:"新锐白领风格，干练都市感",  motion:"模特从远处自然走向镜头",  scene:"都市街头自然环境",       mood:"干练自信的都市女性气质",     light:"午后从侧面照入的温暖阳光", lens:"正面平视镜头",       pace:"正常播放速度" },
+  { name: "精致妈妈·治愈风",     audience:"精致妈妈风格，温柔高级感",  motion:"模特轻轻拨弄发丝",        scene:"室内落地窗自然采光环境", mood:"温柔治愈的轻松氛围",         light:"清晨透过薄雾的柔和晨光",   lens:"近景半身特写",       pace:"整体节奏优雅舒缓" },
+  { name: "资深中产·高端大片",   audience:"资深中产风格，优雅知性感",  motion:"镜头缓慢环绕模特一圈",    scene:"现代艺术馆白墙空间",     mood:"优雅知性的成熟魅力",         light:"专业摄影棚均匀打光",       lens:"45度斜角拍摄",       pace:"轻微慢动作效果" },
+  { name: "GenZ·甜酷夜街",       audience:"GenZ风格，甜酷青春感",      motion:"模特转身回眸轻微微笑",    scene:"城市夜晚霓虹街景",       mood:"甜美与酷感并存的反差魅力",   light:"冷色调蓝白光线",           lens:"低角度仰拍显身材比例", pace:"节奏轻快灵动" },
+  { name: "小镇青年·清新户外",   audience:"小镇青年风格，亲切活力感",  motion:"微风吹动衣物自然飘动",    scene:"绿植花园户外自然环境",   mood:"清新自然的户外活力感",       light:"自然漫射柔和光线",         lens:"远景全身展示",       pace:"整体节奏优雅舒缓" },
+  { name: "都市银发·优雅公园",   audience:"都市银发风格，优雅从容感",  motion:"模特沿画面侧向缓步走过",  scene:"城市公园或广场户外环境", mood:"端庄大方的成熟女性气质",     light:"午后从侧面照入的温暖阳光", lens:"正面平视镜头",       pace:"整体节奏优雅舒缓" },
+  { name: "都市蓝领·街头日常",   audience:"都市蓝领风格，元气亲和感",  motion:"模特从远处自然走向镜头",  scene:"都市街头自然环境",       mood:"亲切自然的生活化气息",       light:"自然漫射柔和光线",         lens:"45度斜角拍摄",       pace:"正常播放速度" },
+  { name: "小镇中老年·居家暖意", audience:"小镇中老年风格，温暖亲切感",motion:"模特优雅坐下再起身",      scene:"室内落地窗自然采光环境", mood:"端庄大方的成熟女性气质",     light:"室内暖黄灯光氛围",         lens:"正面平视镜头",       pace:"整体节奏优雅舒缓" },
 ];
 
-const colOrder   = ['audience','motion','scene','mood','light','lens','pace'];
-const chipClass  = { audience:'chip-audience', motion:'chip-motion', scene:'chip-scene', mood:'chip-mood', light:'chip-light', lens:'chip-lens', pace:'chip-pace' };
-const selected   = {};
+const colOrder  = ['audience','motion','scene','mood','light','lens','pace'];
+const chipClass = { audience:'chip-audience', motion:'chip-motion', scene:'chip-scene', mood:'chip-mood', light:'chip-light', lens:'chip-lens', pace:'chip-pace' };
+const selected  = {};
 colOrder.forEach(k => selected[k] = null);
 
 function renderChips() {
@@ -465,6 +439,7 @@ function toggleChip(col, item) {
     }
   }
   updateOutput();
+  updateRandomResult();
 }
 
 function updateOutput() {
@@ -472,15 +447,34 @@ function updateOutput() {
   const out  = document.getElementById('output');
   const hint = document.getElementById('combo-hint');
   if (!parts.length) {
-    out.innerHTML = '<span class="pb-placeholder">Prompt 将在这里自动生成——请先从下方「Step 2 推荐组合」选一个，或在「Step 3 自定义」中手动选择</span>';
+    out.innerHTML = '<span class="pb-placeholder">Prompt 将在这里自动生成——请先从「Step 2 推荐组合」选一个，或在「Step 3 自定义」中手动选择</span>';
     hint.textContent = '';
     return;
   }
   out.textContent = parts.join('，') + '，高清画质，细节清晰';
   const filled = Object.values(selected).filter(Boolean).length;
-  const msgs = ['建议先选人群定向', '建议补充动作维度', '建议补充场景维度', '可继续补充光线 / 镜头维度', '组合完整，可直接复制使用'];
+  const msgs = ['建议先选人群定向','建议补充动作维度','建议补充场景维度','可继续补充光线 / 镜头维度','组合完整，可直接复制使用'];
   const idx = !selected.audience ? 0 : !selected.motion ? 1 : !selected.scene ? 2 : filled < 5 ? 3 : 4;
   hint.textContent = '已选 ' + filled + ' 个维度 · ' + msgs[idx];
+}
+
+function updateRandomResult() {
+  const container = document.getElementById('random-result');
+  const hasAny = colOrder.some(k => selected[k]);
+  if (!hasAny) { container.classList.remove('visible'); return; }
+
+  const labelMap = { audience:'人群', motion:'动作', scene:'场景', mood:'情绪', light:'光线', lens:'镜头', pace:'节奏' };
+  const tags = colOrder.map(col => {
+    const item = data[col].find(d => d.val === selected[col]);
+    if (!item) return '';
+    return '<span class="random-tag">' + labelMap[col] + '：' + item.label + '</span>';
+  }).filter(Boolean).join('');
+
+  container.innerHTML =
+    '<span class="random-result-label">当前组合</span>' +
+    '<div class="random-result-tags">' + tags + '</div>' +
+    '<a class="random-edit-link" onclick="scrollToCustom()">去调整 ↓</a>';
+  container.classList.add('visible');
 }
 
 function copyPrompt() {
@@ -492,6 +486,7 @@ function copyPrompt() {
 function clearAll() {
   colOrder.forEach(k => selected[k] = null);
   document.getElementById('audience-hint').classList.remove('visible');
+  document.getElementById('random-result').classList.remove('visible');
   renderChips();
   updateOutput();
 }
@@ -503,27 +498,32 @@ function randomPick() {
   });
   const audItem = data.audience.find(d => d.val === selected.audience);
   const banner = document.getElementById('audience-hint');
-  if (audItem && audItem.hint) {
-    banner.innerHTML = audItem.hint;
-    banner.classList.add('visible');
-  }
+  if (audItem && audItem.hint) { banner.innerHTML = audItem.hint; banner.classList.add('visible'); }
   renderChips();
   updateOutput();
+  updateRandomResult();
 }
 
 function loadPreset(p) {
   colOrder.forEach(col => { selected[col] = p[col] || null; });
   const audItem = data.audience.find(d => d.val === selected.audience);
   const banner = document.getElementById('audience-hint');
-  if (audItem && audItem.hint) {
-    banner.innerHTML = audItem.hint;
-    banner.classList.add('visible');
-  } else {
-    banner.classList.remove('visible');
-  }
+  if (audItem && audItem.hint) { banner.innerHTML = audItem.hint; banner.classList.add('visible'); }
+  else { banner.classList.remove('visible'); }
   renderChips();
   updateOutput();
-  document.querySelector('.main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  updateRandomResult();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scrollToCustom() {
+  document.getElementById('custom-block').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function applyAndScrollTop() {
+  updateOutput();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showToast('已更新，可在顶部复制 Prompt');
 }
 
 function renderPresets() {
@@ -538,8 +538,8 @@ function renderPresets() {
       '<div class="preset-name">' + p.name + '</div>' +
       '<div class="preset-tags">' +
         '<span class="pb-tag tag-audience">' + audLabel + '</span>' +
-        '<span class="pb-tag tag-motion">' + motLabel + '</span>' +
-        '<span class="pb-tag tag-scene">' + sceLabel + '</span>' +
+        '<span class="pb-tag tag-motion">'   + motLabel + '</span>' +
+        '<span class="pb-tag tag-scene">'    + sceLabel + '</span>' +
       '</div>';
     card.addEventListener('click', () => loadPreset(p));
     grid.appendChild(card);
